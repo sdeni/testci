@@ -3,13 +3,14 @@
 //
 
 #define CATCH_CONFIG_MAIN
-
 #include "catch.hpp"
+
 #include "graph.h"
+
 using Catch::Matchers::Vector::EqualsMatcher;
 
 unsigned int Factorial( unsigned int number ) {
-    return number <= 1 ? number : Factorial(number-1)*number;
+    return number <= 1 ? 1 : Factorial(number-1)*number;
 }
 
 TEST_CASE( "Factorials are computed", "[factorial]" ) {
@@ -39,18 +40,6 @@ TEST_CASE( "Graph breadth first", "[graph]" ) {
         REQUIRE( nodesList.size() == 4 );
     }
 
-    SECTION( "Simplest graph test" ) {
-        g.fromArray({
-            {0,1,2},
-            {1,2,3},
-            {2,1},
-            {3,0,1}
-        });
-        auto nodesList = g.breadthFirstSearch(0);
-
-        REQUIRE( nodesList.size() == 4 );
-    }
-
     SECTION( "More complex graph test" ) {
         g.fromArray({
             {0,2,4},
@@ -63,8 +52,14 @@ TEST_CASE( "Graph breadth first", "[graph]" ) {
 
         REQUIRE( nodesList.size() == 5 );
 
-        std::vector<int> test = std::vector<int> ({1,2,3});
-        // REQUIRE_THAT( nodesList, EqualsMatcher(test));
+        // Should return 0, 2, 4, 1, 3
+        int test[] = {0, 2, 4, 1, 3};
+        for(int i=0;i<nodesList.size(); i++) {
+            REQUIRE( test[i] == nodesList[i] );
+        }
+
+//        std::vector<int> testVect = std::vector<int> ({0, 2, 4, 1, 3});
+//        REQUIRE_THAT( nodesList, EqualsMatcher(testVect));
     }
 }
 

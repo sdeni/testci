@@ -34,13 +34,13 @@ std::vector<int> Graph::breadthFirstSearch(int startNode) {
     std::list<int> nodesQueue;
 
     nodesQueue.push_back(startNode);
+    visitedNodes[startNode] = true;
 
     while (!nodesQueue.empty()) {
         int curNode = nodesQueue.front();
         nodesQueue.pop_front();
 
         res.push_back(curNode);
-        visitedNodes[curNode] = true;
 
         for(int n : outEdges[curNode]) {
             if(!visitedNodes[n]) {
