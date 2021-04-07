@@ -4,8 +4,15 @@
 int main() {
     std::cout << "Unit tests demo project" << std::endl;
 
-    Graph G;
-    G.print();
+    Graph g;
+
+    g.fromArray({
+        {0,1,2},
+        {1,2},
+        {2,1}
+    });
+
+    g.print();
 
     return 0;
 }
