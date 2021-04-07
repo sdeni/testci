@@ -16,7 +16,8 @@ compile:
     - cmake --version
     - cmake CMakeLists.txt
     - make
-    - ./TestedGraph
+    # - ./TestedGraph
+    - ./UnitTests
 
   # Save the compiled output from the above for downloading via GitLab and in Gitlab 8.6 to use in future build steps
   artifacts:
