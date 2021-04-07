@@ -27,7 +27,7 @@ private:
 public:
     void fromArray(std::vector<std::vector<int>> data);
     void print();
-    std::list<int> breadthFirstSearch(int startNode);
+    std::vector<int> breadthFirstSearch(int startNode);
 };
 
 

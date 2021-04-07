@@ -28,9 +28,9 @@ void Graph::print() {
 }
 
 
-std::list<int> Graph::breadthFirstSearch(int startNode) {
+std::vector<int> Graph::breadthFirstSearch(int startNode) {
     bool *visitedNodes = new bool[nodes.size()]();
-    std::list<int> res;
+    std::vector<int> res;
     std::list<int> nodesQueue;
 
     nodesQueue.push_back(startNode);
