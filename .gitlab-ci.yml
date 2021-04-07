@@ -1,0 +1,24 @@
+image: ubuntu:18.04
+
+before_script:
+  - apt-get update
+  - apt-get install -y gcc g++
+  - apt-get install --yes cmake
+
+compile:
+  script:
+    # Compile our app with plain gcc
+    # - g++ main.cpp -o demogit
+
+    # Compile our app with cmake
+    - export CC=gcc-7
+    - export CXX=g++-7
+    - cmake --version
+    - cmake CMakeLists.txt
+    - make
+    - ./TestedGraph
+
+  # Save the compiled output from the above for downloading via GitLab and in Gitlab 8.6 to use in future build steps
+  artifacts:
+    paths:
+      - TestedGraph
