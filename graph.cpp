@@ -6,6 +6,7 @@
 
 void Graph::fromArray(std::vector<std::vector<int>> data) {
     nodes = std::vector<Node>();
+    outEdges = std::unordered_map<int, std::vector<int>>(data.size());
     for(auto row: data) {
         nodes.push_back({0,0, std::to_string(row[0])});
         outEdges.insert(std::pair(row[0], std::vector<int>(row.begin()+1, row.end())));
@@ -24,4 +25,30 @@ void Graph::print() {
         i++;
         row = outEdges.find(i);
     }
+}
+
+
+std::list<int> Graph::breadthFirstSearch(int startNode) {
+    bool *visitedNodes = new bool[nodes.size()]();
+    std::list<int> res;
+    std::list<int> nodesQueue;
+
+    nodesQueue.push_back(startNode);
+
+    while (!nodesQueue.empty()) {
+        int curNode = nodesQueue.front();
+        nodesQueue.pop_front();
+
+        res.push_back(curNode);
+        visitedNodes[curNode] = true;
+
+        for(int n : outEdges[curNode]) {
+            if(!visitedNodes[n]) {
+                nodesQueue.push_back(n);
+                visitedNodes[n] = true;
+            }
+        }
+    }
+
+    return res;
 }

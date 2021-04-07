@@ -6,6 +6,7 @@
 #define TESTEDGRAPH_GRAPH_H
 
 #include <vector>
+#include <list>
 #include <string>
 #include <map>
 #include <unordered_map>
@@ -26,6 +27,7 @@ private:
 public:
     void fromArray(std::vector<std::vector<int>> data);
     void print();
+    std::list<int> breadthFirstSearch(int startNode);
 };
 
 
