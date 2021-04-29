@@ -7,16 +7,13 @@ before_script:
 
 compile:
   script:
-    # Compile our app with plain gcc
-    # - g++ main.cpp -o demogit
-
     # Compile our app with cmake
     - export CC=gcc-7
     - export CXX=g++-7
     - cmake --version
     - cmake CMakeLists.txt
     - make
-    # - ./TestedGraph
+    - ./TestedGraph
     - ./UnitTests
 
   # Save the compiled output from the above for downloading via GitLab and in Gitlab 8.6 to use in future build steps
