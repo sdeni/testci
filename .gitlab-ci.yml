@@ -1,5 +1,10 @@
 image: ubuntu:18.04
 
+stages:
+  - compile
+  - test
+  - run
+
 before_script:
   - apt-get update
   - apt-get install -y gcc g++
