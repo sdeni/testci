@@ -6,6 +6,7 @@ before_script:
   - apt-get install --yes cmake
 
 compile:
+  stage: compile
   script:
     # Compile our app with cmake
     - export CC=gcc-7
@@ -21,9 +22,11 @@ compile:
       - UnitTests
 
 test:
+  stage: test
   script:
     - ./UnitTests
 
 run:
+  stage: run
   script:
     - ./TestedGraph
