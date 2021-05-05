@@ -15,4 +15,4 @@ jobs:
           run_tests: ON
           unit_test_build: -Dtest=ON
       - name: Run
-          run: D:\\a\\testci\\testci\\build\\Release\\UnitTests.exe
+          run: D:\a\testci\testci\build\Release\UnitTests.exe
