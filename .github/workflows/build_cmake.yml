@@ -17,5 +17,8 @@ jobs:
           run_tests: ON
           unit_test_build: -Dtest=ON
 
+      - name: List
+        run: ls -al /home/runner/work/testci/testci/build
+
       - name: Run
-        run: /home/runner/work/testci/testci/build/UnitTests.exe
+        run: /home/runner/work/testci/testci/build/UnitTests
