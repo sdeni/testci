@@ -1,0 +1,16 @@
+image:
+  ubuntu:18.04
+
+before_script:
+    - apt-get update
+    - apt-get install -y gcc g++
+    - apt-get install --yes cmake
+
+compile:
+  script:
+  # Compile our app with cmake
+    - export CC=gcc-7
+    - export CXX=g++-7
+    - cmake --version
+    - cmake CMakeLists.txt
+    #- make - ./list - ./tests
