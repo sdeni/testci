@@ -21,4 +21,7 @@ jobs:
         run: ls -al /home/runner/work/testci/testci/build
 
       - name: Run
+        run: /home/runner/work/testci/testci/build/TestedGraph
+
+      - name: Run tests
         run: /home/runner/work/testci/testci/build/UnitTests
