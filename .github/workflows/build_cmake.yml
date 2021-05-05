@@ -14,5 +14,5 @@ jobs:
           submodule_update: ON
           run_tests: ON
           unit_test_build: -Dtest=ON
-#     - name: Run
-#          run: D:\a\testci\testci\build\Release\UnitTests.exe
+      - name: Run
+          run: /home/runner/work/testci/testci/build/UnitTests.exe
